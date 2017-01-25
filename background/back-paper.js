@@ -3,7 +3,18 @@ var cache_paper = (function (){
     
     function init(){
       return{
-        
+        stat : false,
+        on: function(){
+          console.log('on test');
+          instance.remove();
+          instance.flag();
+        },
+        remove : function(){
+          console.log('remove test');
+        },
+        flag : function(){
+          console.log('flag test');
+        }
       };
     }
     return {
@@ -15,3 +26,4 @@ var cache_paper = (function (){
 })();
 
 var paper = cache_paper.getInstance();
+paper.on();
