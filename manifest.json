@@ -6,6 +6,17 @@
   "browser_action": {
     "default_icon":"images/icon-cache_false.png"
   },
+  "commands":{
+    "toggle-feature":
+    {
+      "suggested_key":
+      {
+        "default": "Ctrl+Shift+M",
+        "mac": "MacCtrl+Shift+M"
+      },
+      "description": "remove data key"
+    }
+  },
   "version": "1.0",
   "manifest_version": 2
 }

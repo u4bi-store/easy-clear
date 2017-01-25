@@ -26,4 +26,4 @@ var cache_paper = (function (){
 })();
 
 var paper = cache_paper.getInstance();
-paper.on();
+chrome.commands.onCommand.addListener(paper.on);
