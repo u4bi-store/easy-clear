@@ -1,6 +1,7 @@
 {
   "name": "EasycleanBrowsing.v.1.0",
   "description": "브라우저상 남아있는 데이터 정보들을 모두 매우 간편하게 단축키 하나로 삭제합니다.",
+  "background": { "scripts": ["background/back-paper.js"]},
   "permissions": ["browsingData"],
   "version": "1.0",
   "manifest_version": 2
