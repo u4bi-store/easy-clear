@@ -11,6 +11,10 @@ var cache_paper = (function (){
         },
         remove : function(){
             console.log('remove test');
+          
+            var attribue =[ {"since": 0}, {"cache" :true}
+            ];
+            chrome.browsingData.remove(attribue, instance.flag);
         },
         flag : function(){
             console.log('flag test');
