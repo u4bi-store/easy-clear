@@ -1,5 +1,3 @@
-var dataArray = [];
-
 var data =[
     {name: "응용 프로그램 캐시" ,key: "appcache",    value: false},
     {name: "캐시된 이미지,파일" ,key: "cache",       value: false},
@@ -21,8 +19,16 @@ var PaperController = function(data){
 
 PaperController.prototype = {
     data : null,
+    dataArray : [],  
     fixCheck : function(bool){
         console.log('fixCheck : '+bool);
+      
+        for(var i=0; i<this.data.length; i++){
+          this.data[i].type = bool;
+          this.dataArray[i].checked = this.data[i].type;
+          
+          this.save(this.data[i].key, this.data[i].type);
+        }
     },
     save : function(key, value){
         console.log('save : '+key+' '+value);
@@ -35,27 +41,27 @@ document.addEventListener('DOMContentLoaded', function () {
     
     var paper = new PaperController(data);
   
-    var box, li, label, removed, checked;
+    var box, li, ul, label, removed, checked;
     
     box = document.getElementById('box');
-	box.innerHTML='인터넷 사용기록 삭제';
+	  box.innerHTML='인터넷 사용기록 삭제';
     
-    for(var i=0; i<data.length; i++){
+    for(var i=0; i<paper.data.length; i++){
         li = document.createElement('li');
         ul.appendChild(li);
         
         label = document.createElement('label');
-        label.innerHTML=data[i].name;
+        label.innerHTML=paper.data[i].name;
         li.appendChild(label);
 
-        dataArray[i] = document.createElement("input");
-        dataArray[i].setAttribute("type", "checkbox");
-        dataArray[i].setAttribute("value", data[i].key);
-        dataArray[i].checked = data[i].value;
-        dataArray[i].onclick=function(e){
+        paper.dataArray[i] = document.createElement("input");
+        paper.dataArray[i].setAttribute("type", "checkbox");
+        paper.dataArray[i].setAttribute("value", paper.data[i].key);
+        paper.dataArray[i].checked = paper.data[i].value;
+        paper.dataArray[i].onclick=function(e){
           paper.save(e.target.attributes[1].nodeValue, e.target.checked);}; 
       
-        label.appendChild(dataArray[i]);
+        label.appendChild(paper.dataArray[i]);
     }
     
     removed=document.getElementById('removed');
