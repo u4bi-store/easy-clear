@@ -26,6 +26,7 @@ PaperController.prototype = {
     },
     save : function(key, value){
         console.log('save : '+key+' '+value);
+        localStorage.setItem(key,value);
     }
 };
 
