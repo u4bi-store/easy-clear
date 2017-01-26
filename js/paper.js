@@ -15,7 +15,22 @@ var data =[
     {name: "webSQL"         ,key: "webSQL",      value: false}
 ];
 
+var PaperControl = function(){};
+
+PaperControl.prototype = {
+    fixCheck : function(bool){
+        console.log('fixCheck : '+bool);
+    },
+    save : function(key, value){
+        console.log('save : '+key+' '+value);
+    }
+};
+
+
 document.addEventListener('DOMContentLoaded', function () {
+    
+    var ctrl = new PaperControl();
+    
     var box, li, label, removed, checked;
     
     box = document.getElementById('box');
@@ -33,10 +48,18 @@ document.addEventListener('DOMContentLoaded', function () {
         dataArray[i].setAttribute("type", "checkbox");
         dataArray[i].setAttribute("value", data[i].key);
         dataArray[i].checked = data[i].value;
+
+        dataArray[i].onclick=function(e){
+            ctrl.save(e.target.attributes[1].nodeValue, e.target.checked);};
         
         label.appendChild(dataArray[i]);
     }
     
     removed=document.getElementById('removed');
     checked=document.getElementById('checked');
+    removed.onclick=function(){
+        ctrl.fixCheck(false);};
+
+    checked.onclick=function(){
+        ctrl.fixCheck(true);};
 });
