@@ -33,7 +33,7 @@ PaperController.prototype = {
 document.addEventListener('DOMContentLoaded', function () {
     
     var paper = new PaperController(data);
-    
+  
     var box, li, label, removed, checked;
     
     box = document.getElementById('box');
@@ -51,18 +51,16 @@ document.addEventListener('DOMContentLoaded', function () {
         dataArray[i].setAttribute("type", "checkbox");
         dataArray[i].setAttribute("value", data[i].key);
         dataArray[i].checked = data[i].value;
-
         dataArray[i].onclick=function(e){
-            paper.save(e.target.attributes[1].nodeValue, e.target.checked);};
-        
+          paper.save(e.target.attributes[1].nodeValue, e.target.checked);}; 
+      
         label.appendChild(dataArray[i]);
     }
     
     removed=document.getElementById('removed');
     checked=document.getElementById('checked');
     removed.onclick=function(){
-        paper.fixCheck(false);};
-
+      paper.fixCheck(false);};
     checked.onclick=function(){
-        paper.fixCheck(true);};
+      paper.fixCheck(true);};
 });
