@@ -4,7 +4,8 @@
   "background": { "scripts": ["background/back-paper.js"]},
   "permissions": ["browsingData"],
   "browser_action": {
-    "default_icon":"images/icon-cache_false.png"
+    "default_icon":"images/icon-cache_false.png",
+    "default_popup":"paper.html"
   },
   "commands":{
     "toggle-feature":
