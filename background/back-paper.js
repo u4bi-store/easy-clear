@@ -1,5 +1,6 @@
 var cache_paper = (function (){
     var instance;
+    var data = localStorage;
     
     function init(){
       return{
@@ -12,7 +13,22 @@ var cache_paper = (function (){
         remove : function(){
             console.log('remove test');
           
-            var attribue =[ {"since": 0}, {"cache" :true}
+            var attribue =[
+              {"since": 0},
+              {
+                "appcache"    :JSON.parse(data['appcache']),
+                "cache"       :JSON.parse(data['cache']),
+                "cookies"     :JSON.parse(data['cookies']),
+                "downloads"   :JSON.parse(data['downloads']),
+                "fileSystems" :JSON.parse(data['fileSystems']),
+                "formData"    :JSON.parse(data['formData']),
+                "history"     :JSON.parse(data['history']),
+                "indexedDB"   :JSON.parse(data['indexedDB']),
+                "localStorage":JSON.parse(data['localStorage']),
+                "pluginData"  :JSON.parse(data['pluginData']),
+                "passwords"   :JSON.parse(data['passwords']),
+                "webSQL"      :JSON.parse(data['webSQL'])
+              }
             ];
             chrome.browsingData.remove(attribue, instance.flag);
         },
