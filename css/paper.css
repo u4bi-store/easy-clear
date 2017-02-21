@@ -1,6 +1,36 @@
+body{
+  background: #000;
+  color: #FFF;
+}
+span, button{
+  background: #1D1F20;
+  padding:10px 20px 10px 20px;
+}
+
+button{
+  color: #fff;
+  text-decoration:none;
+  outline: none !important;
+  border: 0;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#E3E3E3;
+  color:#000;
+}
+
+li{
+  list-style-type:none;
+}
+li:hover{
+  list-style-type:disc;
+}
+
 #box{
   width: 250px;
   height: auto;
+  background: #1D1F20;
 }
 
 input[type=checkbox] {
