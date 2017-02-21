@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var box, li, ul, label, removed, checked;
     
     box = document.getElementById('box');
-    box.innerHTML='인터넷 사용기록 삭제';
 
     ul = document.createElement('ul');
     box.appendChild(ul);
@@ -60,11 +59,13 @@ document.addEventListener('DOMContentLoaded', function () {
         
         label = document.createElement('label');
         label.innerHTML=paper.data[i].name;
+        label.setAttribute("For", paper.data[i].key);
         li.appendChild(label);
 
         paper.dataArray[i] = document.createElement("input");
         paper.dataArray[i].setAttribute("type", "checkbox");
         paper.dataArray[i].setAttribute("value", paper.data[i].key);
+        paper.dataArray[i].setAttribute("id", paper.data[i].key);
         paper.dataArray[i].checked = paper.data[i].value;
         paper.dataArray[i].onclick=function(e){
           paper.save(e.target.attributes[1].nodeValue, e.target.checked);}; 
