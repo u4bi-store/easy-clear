@@ -36,9 +36,8 @@ var cache_paper = (function (){
             console.log('flag test');
             instance.stat = !instance.stat;
           
-            var attribue ={ path: 'images/icon-cache_'+instance.stat+'.png'
-            };
-            chrome.browserAction.setIcon(attribue); 
+            var attribue ={ path: 'images/icon-cache_'+instance.stat+'.png'};
+            chrome.browserAction.setIcon(attribue);
         }
       };
     }

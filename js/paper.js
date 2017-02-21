@@ -40,11 +40,19 @@ PaperController.prototype = {
 document.addEventListener('DOMContentLoaded', function () {
     
     var paper = new PaperController(data);
+
+    for(var i=0; i<data.length; i++){
+        var temp = localStorage[data[i].key];
+        if(temp != undefined && temp != false)paper.data[i].value = JSON.parse(temp);
+    }
   
     var box, li, ul, label, removed, checked;
     
     box = document.getElementById('box');
-	  box.innerHTML='인터넷 사용기록 삭제';
+    box.innerHTML='인터넷 사용기록 삭제';
+
+    ul = document.createElement('ul');
+    box.appendChild(ul);
     
     for(var i=0; i<paper.data.length; i++){
         li = document.createElement('li');
